@@ -99,7 +99,7 @@ def confirmar_reserva(reserva_id: UUID) -> ReservaResponse:
     return reserva
 
 
-@app.patch("/reservas/{reserva_id}/cancelar", response_model=ReservaResponse)
+@app.delete("/reservas/{reserva_id}/cancelar", response_model=ReservaResponse)
 def cancelar_reserva(reserva_id: UUID, _: str = Depends(auth_basica)) -> ReservaResponse:
     reserva = reservas.get(reserva_id)
     if not reserva:

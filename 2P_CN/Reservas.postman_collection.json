@@ -1,0 +1,182 @@
+{
+    "info": {
+        "name": "API de Reservaciones",
+        "description": "API REST para gestión de reservas con FastAPI y Docker",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Listar Reservas (Protegido)",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/reservas",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas"
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "password",
+                            "value": "rest123",
+                            "type": "string"
+                        },
+                        {
+                            "key": "username",
+                            "value": "admin",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Crear Reserva",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"cliente_nombre\": \"Juan Perez\",\n    \"fecha_reserva\": \"2026-10-15 10:30\",\n    \"numero_personas\": 4\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/reservas",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Consultar por ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/reservas/{{reserva_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas",
+                        "{{reserva_id}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Confirmar Reserva",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/reservas/{{reserva_id}}/confirmar",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas",
+                        "{{reserva_id}}",
+                        "confirmar"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Actualizar Reserva Completa",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"cliente_nombre\": \"Juan Perez Actualizado\",\n    \"fecha_reserva\": \"2026-10-15 12:30\",\n    \"numero_personas\": 5\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8000/reservas/{{reserva_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas",
+                        "{{reserva_id}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Cancelar Reserva (Protegido)",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/reservas/{{reserva_id}}",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "reservas",
+                        "{{reserva_id}}"
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "password",
+                            "value": "rest123",
+                            "type": "string"
+                        },
+                        {
+                            "key": "username",
+                            "value": "admin",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "reserva_id",
+            "value": "coloca_aqui_el_id_de_la_reserva"
+        }
+    ]
+}
